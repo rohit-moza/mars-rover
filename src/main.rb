@@ -39,11 +39,21 @@ def setup_new_rover
   setup_new_rover if add_more_rovers == 'y'
 end
 
+def execute_control_instructions_for_all_rovers
+  @rovers.each do |rover|
+    rover.position = "HACKED"
+  end
+end
+
 start_rover_program
 puts "WHERE DO YOU WANT TO LAND YOUR ROVER? SPECIFY x y and heading"
 setup_new_rover
 puts "ROVERS LANDED SEE WHAT THEY LOOK LIKE!!"
 pp @rovers
+execute_control_instructions_for_all_rovers
+pp @rovers
+
+
 
 
 
