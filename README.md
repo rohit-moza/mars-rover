@@ -1,5 +1,5 @@
 # mars-rover
-## Problem Breakdown
+## PROBLEM BREAKDOWN
 
 * heading 
   - direction rover is facing i.e. 'N', 'S', 'E', 'W'
@@ -14,7 +14,7 @@
   - R - 90 deg R    ----> These change the heading
   - M - Move forward one grid point   ---> move relative to heading
 
-* L and R . Previous Heading to New Heading
+* L and R / Previous Heading to New Heading
  - N + L -> W
  - N + R -> E
 
