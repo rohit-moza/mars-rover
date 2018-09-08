@@ -1,7 +1,8 @@
-# mars-rover
+# Mars-Rover
+
 ## PROBLEM BREAKDOWN
 
-* heading 
+* Heading 
   - direction rover is facing i.e. 'N', 'S', 'E', 'W'
   - string
 
@@ -15,23 +16,23 @@
   - M - Move forward one grid point   ---> move relative to heading
 
 * L and R / Previous Heading to New Heading
- - N + L -> W
- - N + R -> E
+  - N + L -> W
+  - N + R -> E
 
- - E + L -> N 
- - E + R -> S
+  - E + L -> N 
+  - E + R -> S
 
- - S + L -> E
- - S + R -> W
+  - S + L -> E
+  - S + R -> W
 
-- W + L -> S
-- W + R -> N
+  - W + L -> S
+  - W + R -> N
 
 * Heading and Movement
-- N : (x,y) -> (x,y+1)
-- S : (x,y) -> (x,y-1)
-- E : (x,y) -> (x+1,y)
-- W: (x,y) -> (x-1,y)
+  - N : (x,y) -> (x,y+1)
+  - S : (x,y) -> (x,y-1)
+  - E : (x,y) -> (x+1,y)
+  - W: (x,y) -> (x-1,y)
 
 
 ## INPUT
