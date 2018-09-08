@@ -8,7 +8,7 @@
   - To test type `rspec spec/features/TEST_SPEC_FILE_NAME` 
 * Note: Ruby 2.5.0 used
 * Errors for each rover will be shown below the individual rover output result with relevant error info.
-* Rover landing errors will be shown seperately at the end of the output with relevabt error info.
+* Rover landing errors will be shown seperately at the end of the output with relevant error info.
 
 ## PROBLEM BREAKDOWN
 * Heading 
