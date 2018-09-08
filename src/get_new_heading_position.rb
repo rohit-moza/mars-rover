@@ -1,8 +1,7 @@
+require_relative './constants'
+
 module GetNewHeadingPosition
   
-  X = 0
-  Y = 1
-
   HEADING_ROTATION_COMBINATION_RESULTS = {
     "NL": "W",
     "NR": "E",
@@ -18,8 +17,9 @@ module GetNewHeadingPosition
     HEADING_ROTATION_COMBINATION_RESULTS["#{initial_heading}#{rotation_direction}".to_sym]
   end
 
-  def GetNewHeadingPosition.get_new_position(current_heading, current_position) 
-  new_position = current_position.dup
+  def GetNewHeadingPosition.get_new_position(current_heading, current_position)
+  
+    new_position = current_position.dup
     case current_heading
     when "N"
       new_position[Y] += 1

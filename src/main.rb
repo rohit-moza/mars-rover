@@ -2,14 +2,17 @@ require_relative "./rover"
 require_relative "./extract_input"
 require 'pp'
 require 'byebug'
+require_relative './get_new_heading_position'
+require_relative './constants'
 
 @rovers = []
 @rover_count = 0 
 
+
 def start_rover_program
   puts "--- WELCOME TO MARS ROVER CONTROL MODULE ---"
   puts "START BY ENTERING THE MAX UPPER RIGHT CO-ORDINATES OF THE PLATEAU"
-  upper_right_co_ordinates = ExtractInput.new(gets, 1).upper_right_co_ordinates
+  @upper_right_co_ordinates = ExtractInput.new(gets, 1).upper_right_co_ordinates
   puts "YOU CAN NOW START LANDING ROVERS WITH MOVEMENT INSTRUCTIONS"
 end
 
@@ -39,18 +42,39 @@ def setup_new_rover
   setup_new_rover if add_more_rovers == 'y'
 end
 
+def dimension_constraint_met(axis, new_position_requested, current_rover_position)
+  (new_position_requested[axis] <= @upper_right_co_ordinates[axis]) && (new_position_requested[axis] >= 0)
+end
+
+def allowed_to_change_position(new_position_requested, current_rover_position)
+  x_constraint_met = dimension_constraint_met(X, new_position_requested, current_rover_position)
+  y_constraint_met = dimension_constraint_met(Y, new_position_requested, current_rover_position)
+  x_constraint_met && y_constraint_met
+end
+
 def execute_control_instructions_for_all_rovers
   @rovers.each do |rover|
-    rover.position = "HACKED"
+    
+    rover.control_instructions.each_char {|instruction|
+      if /M/.match(instruction)  
+        new_position_requested = GetNewHeadingPosition.get_new_position(rover.heading, rover.position)
+        rover.position = new_position_requested if allowed_to_change_position(new_position_requested, rover.position)
+      elsif /(L|R)/.match(instruction)
+        rover.heading = GetNewHeadingPosition.get_new_heading(rover.heading, instruction)
+      else
+        puts "INVALID REQUEST DO NOTHING"
+      end
+    }
   end
 end
 
 start_rover_program
 puts "WHERE DO YOU WANT TO LAND YOUR ROVER? SPECIFY x y and heading"
 setup_new_rover
-puts "ROVERS LANDED SEE WHAT THEY LOOK LIKE!!"
+puts "ROVERS LANDED SEE WHAT THEY LOOK LIKE CREATED!!"
 pp @rovers
 execute_control_instructions_for_all_rovers
+puts "ROVERS LANDED SEE WHAT THEY LOOK LIKE AFTER COMMAND EXECUTION!!"
 pp @rovers
 
 

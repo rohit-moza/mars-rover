@@ -5,7 +5,7 @@ attr_writer :position, :heading
   def initialize (position, heading, control_instructions)
     @position = position
     @heading  = heading
-    @rover_control_instructions = control_instructions
+    @control_instructions = control_instructions
   end
 
 end
