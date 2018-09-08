@@ -1,7 +1,7 @@
 class ExtractInput
 INDEX_OF_HEADING_ON_LINE = 2
 
-  def initialize(line, line_number)
+  def initialize(line, line_number=nil)
     @line = line
     @line_number = line_number
   end
@@ -16,6 +16,10 @@ INDEX_OF_HEADING_ON_LINE = 2
 
   def initial_heading
     split[INDEX_OF_HEADING_ON_LINE].strip
+  end
+
+  def control_instructions
+    @line.strip
   end
 
   def split 
