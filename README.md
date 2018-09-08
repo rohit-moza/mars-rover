@@ -1,5 +1,13 @@
 # Mars-Rover
 
+## INSTRUCTIONS TO TEST 
+* `cd src`
+* modify `input.txt` - This is where you can load all the input lines for the program
+* To run main program `ruby main.rb`
+* rspec files are in `spec/features/`
+  - To test type `rspec spec/features/TEST_SPEC_FILE_NAME 
+
+
 ## PROBLEM BREAKDOWN
 
 * Heading 
@@ -45,11 +53,11 @@
 * Final Rover position/location and heading e.g. 1 3 N
 
 ## ADDITIONAL CONSIDERATIONS AND ASSUMPTIONS
-- Grid boundaries     - Rover will not advance for command that makes it exceed boundaries
-- Rover collisions Prevention   - 
-- Rover will not advance for command that forces it to collide with another Rover. _Rover will not be allowed to land (take initial position) if another Rover occupies that position
+- Grid boundaries i.e. Rover will not advance for command that makes it exceed boundaries
+- Rover collisions Prevention - Rover will not advance for command that forces it to collide with another Rover. 
+- Rover will not be allowed to land (take initial position) if another Rover occupies that position
 
-## EXTENSIONS
-- Rover Collission Prevention Comms. Rovers will communicate if allowed and give way to each other if permitted to know about each other's next commands
+## EXTENSIONS CONSIDERED FOR FUTURE IMPROVEMENTS
+- Advanced Rover Collission Prevention Comms. Rovers will communicate with each other and only if allowed and give way to each other if permitted to know about each other's next commands
 - Give way can include moving out of the way temporarily and then returning back to position
 - GUI
