@@ -6,10 +6,10 @@
 * To run main program `ruby main.rb`
 * rspec files are in `spec/features/`
   - To test type `rspec spec/features/TEST_SPEC_FILE_NAME` 
+* Note: Ruby 2.5.0 used
 
 
 ## PROBLEM BREAKDOWN
-
 * Heading 
   - direction rover is facing i.e. 'N', 'S', 'E', 'W'
   - string
