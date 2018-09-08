@@ -14,17 +14,20 @@ def print_outputs
     puts "#{rover.position[X]} #{rover.position[Y]} #{rover.heading}"
 
     unless rover.errors.empty?
-      puts "**ERROR LOG*** for rover on line above with index #{index}"
+      puts "*** INDIVIDUAL ROVER ERROR LOG for rover on line above with index #{index} ***"
       rover.errors.each do |error|
-        puts "|Error Time: #{error[:timestamp]} | description: #{error[:description]} |"
+        puts "|Error Time: #{error[:timestamp]} | description: #{error[:description]}|"
       end
+      puts "*** END OF ROVER ERROR LOG ***"
     end
   end
 
   unless @error_landings.empty?
-    puts "**FATAL ERROR LOG*** LANDING ERRORS"
+    puts ""
+    puts "*** OVERALL SYSTEM ERRORS ***"
+    puts "-- LANDING ERRORS --"
       @error_landings.each do |error|
-      puts "|Error Time: #{error[:timestamp]} | description: #{error[:description]} |"
+      puts "|Error Time: #{error[:timestamp]} | description: #{error[:description]}|"
     end
   end
 
