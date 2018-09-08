@@ -45,7 +45,8 @@
 
 
 ## INPUT
-* Initially Test via command line input
+* Load Input via input.txt file
+* Initially Tested via command line input
 * LINE 1 = Bounds of Grid e.g. 5,5 means we are bound between 0,0 to 5,5 
 * LINE 2 = Rover initial Position
 * LINE3 = String / char array with commands to execute sequentially
