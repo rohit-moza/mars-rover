@@ -15,7 +15,7 @@ INDEX_OF_HEADING_ON_LINE = 2
   end
 
   def initial_heading
-    split[INDEX_OF_HEADING_ON_LINE]
+    split[INDEX_OF_HEADING_ON_LINE][0]
   end
 
   def split 
