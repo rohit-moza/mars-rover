@@ -8,14 +8,6 @@ require_relative './constants'
 @rovers = []
 @rover_count = 0 
 
-
-# def start_rover_program
-#   puts "--- WELCOME TO MARS ROVER CONTROL MODULE ---"
-#   puts "START BY ENTERING THE MAX UPPER RIGHT CO-ORDINATES OF THE PLATEAU"
-#   @upper_right_co_ordinates = ExtractInput.new(gets, 1).upper_right_co_ordinates
-#   puts "YOU CAN NOW START LANDING ROVERS WITH MOVEMENT INSTRUCTIONS"
-# end
-
 def land_new_rover
   new_rover = Rover.new(@initial_rover_position, @initial_rover_heading, @rover_control_instructions)
   @rovers[@rover_count] = new_rover
@@ -31,12 +23,6 @@ end
 def get_control_instructions(line)
   @rover_control_instructions = line
 end
-
-# def setup_new_rover(line)
-  
-#   get_control_instructions = 
-#   land_new_rover
-# end
 
 def dimension_constraint_met(axis, new_position_requested)
   (new_position_requested[axis] <= @upper_right_co_ordinates[axis]) && (new_position_requested[axis] >= 0)

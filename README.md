@@ -5,7 +5,7 @@
 * modify `input.txt` - This is where you can load all the input lines for the program
 * To run main program `ruby main.rb`
 * rspec files are in `spec/features/`
-  - To test type `rspec spec/features/TEST_SPEC_FILE_NAME 
+  - To test type `rspec spec/features/TEST_SPEC_FILE_NAME` 
 
 
 ## PROBLEM BREAKDOWN
