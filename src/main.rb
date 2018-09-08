@@ -1,6 +1,5 @@
 require_relative "./rover"
 require_relative "./extract_input"
-require 'pp'
 require 'byebug'
 require_relative './get_new_heading_position'
 require_relative './constants'
