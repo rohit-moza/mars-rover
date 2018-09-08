@@ -1,16 +1,16 @@
-require_relative "../../src/execute_control_instructions"
+require_relative "../../src/get_new_heading_position"
 require_relative "../../src/rover"
 require "byebug"
 
 
 new_rover = Rover.new([1, 2], "N", "LMLMLMLMM") 
 
-RSpec.describe "ExecuteControlInstructions", :type => :request do
+RSpec.describe "getNewHeadingPosition", :type => :request do
 
   describe "given a current heading of N and rotation direction of L" do
 
     it "should change rover heading to W" do
-      expect(ExecuteControlInstructions.change_heading("N", "L")).to eq("W")
+      expect(GetNewHeadingPosition.get_new_heading("N", "L")).to eq("W")
     end
 
   end
@@ -18,7 +18,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of N and rotation direction of R" do
      
     it "should change rover heading to E" do
-      expect(ExecuteControlInstructions.change_heading("N", "R")).to eq("E")
+      expect(GetNewHeadingPosition.get_new_heading("N", "R")).to eq("E")
     end
 
   end
@@ -26,7 +26,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of E and rotation direction of L" do
     
     it "should change rover heading to N" do
-      expect(ExecuteControlInstructions.change_heading("E", "L")).to eq("N")
+      expect(GetNewHeadingPosition.get_new_heading("E", "L")).to eq("N")
     end
 
   end
@@ -34,7 +34,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of E and rotation direction of R" do
    
     it "should change rover heading to S" do
-      expect(ExecuteControlInstructions.change_heading("E", "R")).to eq("S")
+      expect(GetNewHeadingPosition.get_new_heading("E", "R")).to eq("S")
     end
 
   end
@@ -42,7 +42,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of S and rotation direction of L" do
     
     it "should change rover heading to E" do
-      expect(ExecuteControlInstructions.change_heading("S", "L")).to eq("E")
+      expect(GetNewHeadingPosition.get_new_heading("S", "L")).to eq("E")
     end
 
   end
@@ -50,7 +50,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of S and rotation direction of R" do
     
     it "should change rover heading to W" do
-      expect(ExecuteControlInstructions.change_heading("S", "R")).to eq("W")
+      expect(GetNewHeadingPosition.get_new_heading("S", "R")).to eq("W")
     end
 
   end
@@ -58,7 +58,7 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of W and rotation direction of L" do
     
     it "should change rover heading to S" do
-      expect(ExecuteControlInstructions.change_heading("W", "L")).to eq("S")
+      expect(GetNewHeadingPosition.get_new_heading("W", "L")).to eq("S")
     end
 
   end
@@ -66,10 +66,43 @@ RSpec.describe "ExecuteControlInstructions", :type => :request do
   describe "given a current heading of W and rotation direction of R" do
     
     it "should change rover heading to N" do
-      expect(ExecuteControlInstructions.change_heading("W", "R")).to eq("N")
+      expect(GetNewHeadingPosition.get_new_heading("W", "R")).to eq("N")
     end
 
   end
+
+  describe "given the current heading as N and position as [0, 0]" do
+    
+    it "should return new rover position as [0, 1]" do
+      expect(GetNewHeadingPosition.get_new_position("N", [0,0])).to eq([0,1])
+    end
+
+  end
+
+  describe "given the current heading as E and position as [0, 0]" do
+    
+    it "should return new rover position as [1, 0]" do
+      expect(GetNewHeadingPosition.get_new_position("E", [0,0])).to eq([1,0])
+    end
+
+  end
+
+  describe "given the current heading as S and position as [0, 1]" do
+    
+    it "should return new rover position as [0, 0]" do
+      expect(GetNewHeadingPosition.get_new_position("S", [0,1])).to eq([0,0])
+    end
+
+  end
+
+  describe "given the current heading as W and position as [1, 0]" do
+    
+    it "should return new rover position as [0, 0]" do
+      expect(GetNewHeadingPosition.get_new_position("W", [1,0])).to eq([0,0])
+    end
+
+  end
+  
 
   # describe "given instruction of L and a current heading of N" do
    
